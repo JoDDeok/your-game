@@ -15,17 +15,6 @@ var userSchema = mongoose.Schema({
     required:[true,'Password is required!'],
     select:false
   },
-  name:{
-    type:String,
-    required:[true,'Name is required!'],
-    match:[/^.{4,12}$/,'Should be 4-12 characters!'],
-    trim:true
-  },
-  email:{
-    type:String,
-    match:[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,'Should be a vaild email address!'],
-    trim:true
-  }
 },{
   toObject:{virtuals:true}
 });
