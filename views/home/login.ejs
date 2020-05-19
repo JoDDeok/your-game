@@ -5,12 +5,15 @@
   <body>
 
     <div class="wrap">
+
       <div class="form-wrap">
+
         <div class="button-wrap">
           <div id="btn-login"></div>
           <button type="button" class="togglebtn">LOG IN</button>
           <button type="button" class="togglebtn" onclick="location.href='/users/new'">REGISTER</button>
         </div>
+        
         <form id="login" action="/login" method="post" class="input-group">
 
         <input type="text" id="username" name="username" value="<%= username %>" class="input-field" placeholder="User name or Email" required>
@@ -30,7 +33,9 @@
         <button class="submit">Login</button>
 
         </form>
+
       </div>
+
     </div>
 
   </body>

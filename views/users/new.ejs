@@ -6,12 +6,15 @@
   <body>
 
   <div class="wrap">
+
     <div class="form-wrap">
+
       <div class="button-wrap">
         <div id="btn-register"></div>
         <button type="button" class="togglebtn" onclick="location.href='/login'">LOG IN</button>
         <button type="button" class="togglebtn">REGISTER</button>
       </div>
+
       <form id="register" action="/users" method="post" class="input-group">
         <input type="text" id="username" name="username" value="<%= user.username %>" class="input-field" placeholder="User name or Email" required>
         <% if(errors.username){ %>
@@ -34,7 +37,9 @@
 
         <button class="submit">Register</button>
       </form>
+
     </div>
+
   </div>
 
   </body>

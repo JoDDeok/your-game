@@ -44,7 +44,7 @@ router.post('/login',
     }
   },
   passport.authenticate('local-login', {
-    successRedirect : '/posts',
+    successRedirect : '/surveys',
     failureRedirect : '/login'
   }
 ));
@@ -52,7 +52,7 @@ router.post('/login',
 // Logout
 router.get('/logout', function(req, res) {
   req.logout();
-  res.redirect('/');
+  res.redirect('/login');
 });
 
 module.exports = router;
