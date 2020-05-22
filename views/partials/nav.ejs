@@ -1,23 +1,12 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
-  <div class="container">
-    <div class="navbar-brand">당신의 게임</div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a href="/" class="nav-link">Main</a></li>
-        <li class="nav-item"><a href="/surveys/" class="nav-link">Survey</a></li>
-        <li class="nav-item"><a href="/posts" class="nav-link">Board</a></li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <% if(isAuthenticated){ %>
-          <li class="nav-item"><a href="/users/<%= currentUser.username %>" class="nav-link">My Account</a></li>
-          <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
-        <% } else { %>
-          <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
-        <% } %>
-      </ul>
-    </div>
-  </div>
+<nav class="nav">
+  <button class"button" class="Logo" onClick="location.href='/'" >로고 버튼</button>
+  <button type="button" class="Loginstate" ><%= currentUser.username %></button>
+  <button type="button" class="Logout" onClick="location.href='/logout'" >Logout</button>
+
+  <nav class="nav-bar">
+    <a href="/" class="nav-item is-active" active-color="deeppink">Main</a>
+    <a href="/surveys/" class="nav-item" active-color="magenta">나만의 게임찾기</a>
+    <a href="/posts" class="nav-item" active-color="violet">Board</a>
+    <span class="nav-indicator"></span>
+  </nav>
 </nav>

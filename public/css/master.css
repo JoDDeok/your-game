@@ -1,39 +1,124 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: pink;
 }
-.breadcrumb-item {
-  font-size: 0.8em !important;
+
+/*****************************
+**            nav           **
+*****************************/
+
+.nav {
+  background-color: pink;
 }
-.ellipsis{
-  display: block;
-  width: 100%;
-  white-space: nowrap;
+
+.nav-bar {
+  display: inline-flex;
+  position: absolute;
+  top :8%;
+  left : 40%;
   overflow: hidden;
-  text-overflow: ellipsis;
+  max-width: 100%;
+  background-color: #fff;
+  padding: 0 20px;
+  border-radius: 40px;
+  box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
 }
 
-.board-table {
-  table-layout: fixed;
-}
-.board-table .author,
-.board-table .date {
-  width: 100px;
+.nav-item {
+  color: #83818c;
+  padding: 20px;
+  text-decoration: none;
+  transition: .3s;
+  margin: 0 6px;
+  z-index: 1;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #dfe2ea;
+    border-radius: 8px 8px 0 0;
+    opacity: 0;
+    transition: .3s;
+  }
 }
 
-.post-body{
-  white-space: pre-line;
-}
-.post-info{
-  font-size: 0.8em;
+.nav-item:not(.is-active):hover:before {
+  opacity: 1;
+  bottom: 0;
 }
 
-.user-form {
-  width: 400px;
+.nav-item:not(.is-active):hover { color: #333; }
+
+.nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  transition: .4s;
+  height: 5px;
+  z-index: 1;
+  border-radius: 8px 8px 0 0;
 }
 
-.post-index-tool {
-  max-width: 450px;
+@media (max-width: 580px) {
+  .nav-bar { overflow: auto; }
 }
-.post-index-tool input[type='text']{
-  max-width: 130px;
+
+.Logout{
+  position : absolute;
+  border-width : 0px;
+  border-style : solid;
+  width: 50%;
+  width : 70px; /* 너비 100px */
+  height :30px; /* 높이 50px */
+  overflow: hidden;
+  font-size: 11px;
+  color: black;
+  background: #f6f5f0;
+  top : 67px;
+  left : 1595px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.Loginstate{
+  position : absolute;
+  padding-left : 40px;
+  border-width : 2px;
+  border-style : solid;
+  text-align: left;
+  width: 50%;
+  width : 250px; /* 너비 100px */
+  height :80px; /* 높이 50px */
+  overflow: hidden;
+  font-size: 18px;
+  color: white;
+  background: pink;
+  top : 40px;
+  left : 1435px;
+  border-radius: 10px;
+}
+.Logo{
+  position : absolute;
+  margin-bottom:10px
+  border-width : 4px;
+  border-style : solid;
+  width: 50%;
+  width : 100px; /* 너비 100px */
+  height :100px; /* 높이 50px */
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  background: pink;
+  top : 35px;
+  left : 335px;
 }

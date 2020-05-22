@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <%- include('../partials/head') %>
+
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+
+    <button type="button" class="answer-1">Nintendo Switch</button>
+    <button type="button" class="answer-2">온라인 PC</button>
+    <button type="button" class="answer-3">Play station4</button>
+    <button type="button" class="answer-4">모바일 게임</button>
+
+    <div class="container">
+      <form autocomplete="off">
+        <div class="finder">
+          <div class="finder__outer">
+            <div class="finder__inner">
+              <div class="finder__icon" ref="icon"></div>
+              <input class="finder__input" type="text" name="q" placeholder="     게임을 검색하세요"/>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="/js/nav-indicator.js"></script>
+
+  </body>
+
+</html>
