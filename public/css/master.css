@@ -56,7 +56,9 @@ body {
   bottom: 0;
 }
 
-.nav-item:not(.is-active):hover { color: #333; }
+.nav-item:not(.is-active):hover {
+  color: #333;
+}
 
 .nav-indicator {
   position: absolute;

@@ -4,7 +4,7 @@ var Post = require('../models/Post');
 var util = require('../util');
 
 // Index
-router.get('/', async function(req, res){
+router.get('/', util.isLoggedin, async function(req, res){
   var page = Math.max(1, parseInt(req.query.page));
   var limit = Math.max(1, parseInt(req.query.limit));
   page = !isNaN(page)?page:1;
@@ -22,7 +22,16 @@ router.get('/', async function(req, res){
     .limit(limit)
     .exec();
 
+  // new
+  var post = req.flash('post')[0] || {};
+  var errors = req.flash('errors')[0] || {};
+
   res.render('posts/index', {
+    // new
+    post:post,
+    errors:errors,
+
+    // index
     posts:posts,
     currentPage:page,
     maxPage:maxPage,
@@ -32,13 +41,6 @@ router.get('/', async function(req, res){
   });
 });
 
-// New
-router.get('/new', util.isLoggedin, function(req, res){
-  var post = req.flash('post')[0] || {};
-  var errors = req.flash('errors')[0] || {};
-  res.render('posts/new', { post:post, errors:errors });
-});
-
 // create
 router.post('/', util.isLoggedin, function(req, res){
   req.body.author = req.user._id;
@@ -46,7 +48,7 @@ router.post('/', util.isLoggedin, function(req, res){
     if(err){
       req.flash('post', req.body);
       req.flash('errors', util.parseError(err));
-      return res.redirect('/posts/new');
+      return res.redirect('/posts');
     }
     res.redirect('/posts');
   });

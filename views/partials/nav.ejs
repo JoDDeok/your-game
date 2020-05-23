@@ -1,12 +1,12 @@
 <nav class="nav">
-  <button class"button" class="Logo" onClick="location.href='/'" >로고 버튼</button>
+  <button type="button" class="Logo" onClick="location.href='/'" >로고 버튼</button>
   <button type="button" class="Loginstate" ><%= currentUser.username %></button>
   <button type="button" class="Logout" onClick="location.href='/logout'" >Logout</button>
 
   <nav class="nav-bar">
     <a href="/" class="nav-item is-active" active-color="deeppink">Main</a>
-    <a href="/surveys/" class="nav-item" active-color="magenta">나만의 게임찾기</a>
-    <a href="/posts" class="nav-item" active-color="violet">Board</a>
+    <a href="/surveys/" class="nav-item is-active" active-color="magenta">나만의 게임찾기</a>
+    <a href="/posts" class="nav-item is-active" active-color="violet">Board</a>
     <span class="nav-indicator"></span>
   </nav>
 </nav>

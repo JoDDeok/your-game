@@ -1,3 +1,126 @@
 /*****************************
 **         post page        **
 *****************************/
+
+.wrap{
+  height: 100%;
+  width: 100%;
+  top: 200px;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+}
+#container{
+  background: black;
+  width: 300px;
+  height: 100px;
+  position: relative;
+  margin: 0% auto;
+  padding: 5px;
+  overflow: hidden;
+  color: white;
+  font-size: 26px;
+  text-align: center;
+}
+
+.text-area{
+  background: white;
+  width: 960px;
+  height: 170px;
+  position: relative;
+  margin: 1% auto;
+  padding: 5px;
+  overflow: hidden;
+  color: black;
+  font-size: 10px;
+  text-align: center;
+}
+.btn{
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  width: 150px;
+  height: 100%;
+  position: relative;
+  padding: 30px;
+  margin: 50px;
+  display:inline;
+  outline:none;
+  border-radius: 30px;
+  transition: .5s;
+  font-size: 20px;
+  color: white;
+  float: left;
+}
+
+.input-field {
+    width: 700px;
+    padding: 70px 0;
+    margin: 5px 0;
+    border: none;
+    border: 1px solid #999;
+    outline: none;
+    display:inline;
+    background: transparent;
+    float: left;
+}
+
+.post-field {
+  background: transparent;
+  width: 1100px;
+  height: 1000px;
+  margin: 0 auto;
+}
+
+.content-field {
+  background: lightgray;
+  width: 1100px;
+  height: 170px;
+  position: relative;
+  overflow: hidden;
+  color: black;
+  font-size: 25px;
+  text-align: center;
+}
+
+.username-field{
+  background: black;
+  color: white;
+  width: 300px;
+  height: 50px ;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+
+.page-nav {
+  background: transparent;
+  width: 100px;
+  height: 10px;
+  margin: 0 auto;
+}
+
+.page-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.page-item {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  border: 0;
+  float: left;
+  border-radius: 30px;
+  font-size: 25px;
+}
+
+.page-link {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  border: 0;
+  float: left;
+  border-radius: 30px;
+  font-size: 25px;
+}

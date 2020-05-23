@@ -73,7 +73,7 @@
   flex-direction: column;
 }
 
-form {
+.main-form {
   transition: all 0.5s;
   position: absolute;
   top: 30%;
