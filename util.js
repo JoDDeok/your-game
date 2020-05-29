@@ -33,4 +33,21 @@ util.noPermission = function(req, res){
   res.redirect('/login');
 }
 
+util.getGameQueryString = function(req, res, next){
+  res.locals.getGameQueryString = function(isAppended=false, overwrites={}){
+    var queryString = '';
+    var queryArray = [];
+    var searchType = overwrites.searchType?overwrites.searchType:(req.query.searchType?req.query.searchType:'');
+    var searchText = overwrites.searchText?overwrites.searchText:(req.query.searchText?req.query.searchText:'');
+
+    if(searchType) queryArray.push('searchType='+searchType);
+    if(searchText) queryArray.push('searchText='+searchText);
+
+    if(queryArray.length>0) queryString = (isAppended?'&':'?') + queryArray.join('&');
+
+    return queryString;
+  }
+  next();
+}
+
 module.exports = util;

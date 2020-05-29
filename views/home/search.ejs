@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head') %>
+
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+
+    <div class="container">
+      <form action="/search" method="get" class="main-form" autocomplete="off">
+        <div class="finder">
+          <div class="finder__outer">
+            <div class="finder__inner">
+
+              <input class="finder__input" minLength="2" type="text" name="searchText" value="<%= searchText %>" placeholder="     게임을 검색하세요">
+              <button class="finder__icon" ref="icon" type="submit"></button>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="wrap">
+      <div class="post-field">
+        <% if(games == null || games.length == 0){ %>
+          <div class="content-field">There is no data to show :(</div>
+        <% } %>
+        <% games.forEach(function(game) { %>
+          <div class="username-field"><%= game.name %></div>
+          <div class="content-field"><%= game.siteURL %></div></br>
+        <% }) %>
+      </div>
+    </div>
+
+  </body>
+
+</html>

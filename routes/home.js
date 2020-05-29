@@ -1,11 +1,38 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('../config/passport');
+var Game = require('../models/Game');
 var util = require('../util');
 
+
 // Home
-router.get('/', util.isLoggedin, function(req, res){
-  res.render('home/main');
+router.get('/', util.isLoggedin, async function(req, res){
+  var searchQuery = createSearchQuery(req.query);
+
+  var count = await Game.countDocuments(searchQuery);
+  var games = await Game.find(searchQuery)
+    .sort('-platform')
+    .exec();
+
+  res.render('home/main', {
+    games:games,
+    searchText:req.query.searchText
+  });
+});
+
+// Game Search Result Index
+router.get('/search', util.isLoggedin, async function(req, res){
+  var searchQuery = createSearchQuery(req.query);
+
+  var count = await Game.countDocuments(searchQuery);
+  var games = await Game.find(searchQuery)
+    .sort('-platform')
+    .exec();
+
+  res.render('home/search', {
+    games:games,
+    searchText:req.query.searchText
+  });
 });
 
 // Login
@@ -54,3 +81,15 @@ router.get('/logout', function(req, res) {
 });
 
 module.exports = router;
+
+function createSearchQuery(queries){
+  var searchQuery = {};
+  if(queries.searchText && queries.searchText.length >= 2){
+    var gameQueries = [];
+
+    gameQueries.push({ name: { $regex: new RegExp(queries.searchText, 'i') } });
+
+    if(gameQueries.length > 0) searchQuery = {$or:gameQueries};
+  }
+  return searchQuery;
+}

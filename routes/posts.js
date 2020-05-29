@@ -115,16 +115,16 @@ function checkPermission(req, res, next){
 
 function createSearchQuery(queries){
   var searchQuery = {};
-  if(queries.searchType && queries.searchText && queries.searchText.length >= 2){
+  if(queries.searchType && queries.searchText && queries.searchText.length >= 3){ // 1
     var searchTypes = queries.searchType.toLowerCase().split(',');
     var postQueries = [];
     if(searchTypes.indexOf('title')>=0){
-      postQueries.push({ title: { $regex: new RegExp(queries.searchText, 'i') } });
+      postQueries.push({ title: { $regex: new RegExp(queries.searchText, 'i') } }); // 2
     }
     if(searchTypes.indexOf('body')>=0){
       postQueries.push({ body: { $regex: new RegExp(queries.searchText, 'i') } });
     }
-    if(postQueries.length > 0) searchQuery = {$or:postQueries};
+    if(postQueries.length > 0) searchQuery = {$or:postQueries}; // 3
   }
   return searchQuery;
 }
