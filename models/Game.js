@@ -6,7 +6,7 @@ var gameSchema = mongoose.Schema({
   platform:{type:String},
   siteURL:{type:String},
   image:{type:String},
-  video:{type:String}.
+  video:{type:String},
   bgm:{type:String},
 });
 

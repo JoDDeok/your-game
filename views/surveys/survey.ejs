@@ -3,42 +3,19 @@
   <head>
     <%- include('../partials/head') %>
 
-    <style>
-      h1 {
-        background-color: black;
-        color: white;
-        width: 50%;
-        height: 100px;
-      }
-      h2 {
-        background-color: pink;
-        color: white;
-        width: 560px;
-        height: 50px;
-      }
-      h3 {
-        background-color: skyblue;
-        color: white;
-        width: 170px;
-        height: 40px;
-      }
-      a:link {
-          color: black;
-          text-decoration: none;
-      }
-    </style>
   </head>
   <body>
     <%- include('../partials/nav') %>
 
-    <a href="https://www.naver.com"><img src="Logo.png" border="0" width="200" height="100"></a>
-    <center><h1>당신에게 맞는 게임은?</h1></center>
-    <center><a href="https://www.nintendo.co.kr/software/switch/acbaa/index.html"><img src="모동숲.jpg" border="0" width="560" height="315"></a>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/gQMsAdVneq0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></video></center></br>
-    <center><h2>동물의 숲</h2></center></br>
-    <center><a href="설문화면.html"><h3 style="display:inline;">한 번 더 하기</h3>
-    <a href="로그인 후 화면구성.html"><h3 style="display:inline;">메인으로 가기</h3></center>
-    <audio src="someone like you.m4a" autoplay controls></audio>
+    <div class="survey-text">Q : 내가 좋아하는 게임 플랫폼은??</div>
+    <div class="left-cnt">(1/4)</div>
+
+    <div class="survey-box">
+      <button type="button" class="survey-1" onClick="location.href='/surveys/result' ">닌텐도가 좋아요</button>
+      <button type="button" class="survey-2" >온라인 PC게임이 좋아요</button>
+      <button type="button" class="survey-3">플레이 스테이션이 좋아요</button>
+      <button type="button" class="survey-4">핸드폰 게임이 좋아요</button>
+    </div>
 
   </body>
 </html>

@@ -1,66 +1,74 @@
 /*****************************
 **         main page        **
 *****************************/
-.answer-1{
+.wrap{
+  height: 100%;
+  width: 100%;
+  top: 200px;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+}
+.main-platform-1{
   margin-bottom:10px;
   border-style : solid;
   border-width : 4px;
-  width: 50%;
-  width : 150px; /* 너비 100px */
-   height :150px; /* 높이 50px */
+  width : 190px;
+  height :190px;
   overflow: hidden;
   cursor: pointer;
-  font-size: 16px;
+  font-weight: bold;
+  font-size: 18px;
   color: white;
   position: absolute;
-    top : 400px;
-    left : 510px;
-  background: pink;
+  top : 30%;
+  left : 23%;
+  background: #FF9CBD;
 }
-.answer-2{
+.main-platform-2{
   border-style : solid;
   border-width : 4px;
-  width: 50%;
-  width : 150px; /* 너비 100px */
-   height :150px; /* 높이 50px */
+  width : 190px;
+  height :190px;
   overflow: hidden;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   color: white;
   cursor: pointer;
   position: absolute;
-    top : 400px;
-    left : 770px;
-  background: pink;
+  top : 30%;
+  left : 39%;
+  background: #FF9CBD;
 }
-.answer-3{
+.main-platform-3{
   border-style : solid;
   border-width : 4px;
-  width: 50%;
-  width : 150px; /* 너비 100px */
-  height : 150px; /* 높이 50px */
+  width : 190px;
+  height : 190px;
   overflow: hidden;
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: bold;
   color: white;
   cursor: pointer;
   position: absolute;
-    top : 400px;
-    left : 1030px;
-  background: pink;
+  top : 30%;
+  left : 55%;
+  background: #FF9CBD;
 }
-.answer-4{
+.main-platform-4{
   border-style : solid;
   border-width : 4px;
-  width: 50%;
-  width : 150px; /* 너비 100px */
-  height :150px; /* 높이 50px */
+  width : 190px;
+  height :190px;
   overflow: hidden;
-  font-size: 16px;
+  font-weight: bold;
+  font-size: 18px;
   color: white;
   cursor: pointer;
   position: absolute;
-    top : 400px;
-    left : 1280px;
-  background: pink;
+  top : 30%;
+  left : 71%;
+  background: #FF9CBD;
 }
 .container {
   text-align: center;
@@ -76,7 +84,7 @@
 .main-form {
   transition: all 0.5s;
   position: absolute;
-  top: 30%;
+  top: 10%;
   left : 34%;
   transform: translateY(-50%);
 }

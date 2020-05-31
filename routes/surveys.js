@@ -7,4 +7,9 @@ router.get('/', function(req, res){
   res.render('surveys/survey');
 });
 
+// Survey Result
+router.get('/result', function(req, res){
+  res.render('surveys/survey-result');
+});
+
 module.exports = router;
