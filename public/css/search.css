@@ -43,7 +43,7 @@
   position: absolute;
   top : 3%;
   left : 56%;
-  background: #FF9CBD;
+  background-color: #FF9CBD;
 }
 .search-platform-2{
   border-color: gray;
@@ -59,7 +59,7 @@
   position: absolute;
   top : 3%;
   left : 65%;
-  background: #FF9CBD;
+  background-color: #FF9CBD;
 }
 .search-platform-3{
   border-color: gray;
@@ -75,7 +75,7 @@
   position: absolute;
   top : 3%;
   left : 74%;
-  background: #FF9CBD;
+  background-color: #FF9CBD;
 }
 .search-platform-4{
   border-color: gray;
@@ -91,7 +91,7 @@
   position: absolute;
   top : 3%;
   left : 83%;
-  background: #FF689F;
+  background-color: #FF9CBD;
 }
 
 .search-form {

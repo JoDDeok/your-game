@@ -37,3 +37,26 @@ $(function(){
   convertDate();
   convertDateTime();
 });
+
+function sendPlatform(param) {
+  var form = document.createElement('form');
+  form.setAttribute('method', 'get');
+  form.setAttribute('action', '/platform');
+
+  var hiddenField = document.createElement('input');
+
+  hiddenField.setAttribute('type', 'hidden');
+  hiddenField.setAttribute('name', 'searchPlatform');
+  hiddenField.setAttribute('value', param);
+  form.appendChild(hiddenField);
+
+  document.body.appendChild(form);
+  form.submit();
+}
+
+function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}

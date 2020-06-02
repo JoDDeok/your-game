@@ -16,11 +16,12 @@ router.get('/', util.isLoggedin, async function(req, res){
 
   res.render('home/main', {
     games:games,
-    searchText:req.query.searchText
+    searchText:req.query.searchText,
+    searchPlatform:req.query.searchPlatform
   });
 });
 
-// Game Search Result Index
+// Name Search Result
 router.get('/search', util.isLoggedin, async function(req, res){
   var searchQuery = createSearchQuery(req.query);
 
@@ -29,9 +30,25 @@ router.get('/search', util.isLoggedin, async function(req, res){
     .sort('-platform')
     .exec();
 
-  res.render('home/search', {
+  res.render('home/search-name', {
     games:games,
-    searchText:req.query.searchText
+    searchText:req.query.searchText,
+    searchPlatform:req.query.searchPlatform
+  });
+});
+
+// Platform Search Result
+router.get('/platform', util.isLoggedin, async function(req, res){
+  var searchQuery = createPlatformSearchQuery(req.query);
+
+  var games = await Game.find(searchQuery)
+    .sort('-platform')
+    .exec();
+
+  res.render('home/search-platform', {
+    games:games,
+    searchText:req.query.searchText,
+    searchPlatform:req.query.searchPlatform
   });
 });
 
@@ -88,6 +105,18 @@ function createSearchQuery(queries){
     var gameQueries = [];
 
     gameQueries.push({ name: { $regex: new RegExp(queries.searchText, 'i') } });
+
+    if(gameQueries.length > 0) searchQuery = {$or:gameQueries};
+  }
+  return searchQuery;
+}
+
+function createPlatformSearchQuery(queries){
+  var searchQuery = {};
+  if(queries.searchPlatform){
+    var gameQueries = [];
+
+    gameQueries.push({ platform: { $regex: new RegExp(queries.searchPlatform, 'i') } });
 
     if(gameQueries.length > 0) searchQuery = {$or:gameQueries};
   }

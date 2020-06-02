@@ -2,16 +2,19 @@
 <html>
   <head>
     <%- include('../partials/head') %>
+    <script>
 
+    </script>
   </head>
   <body>
     <%- include('../partials/nav') %>
 
     <div class="wrap">
-      <button type="button" class="main-platform-1">Nintendo Switch</button>
-      <button type="button" class="main-platform-2">Online PC</button>
-      <button type="button" class="main-platform-3">Play Station4</button>
-      <button type="button" class="main-platform-4">Mobile Game</button>
+
+      <button class="main-platform-1" onclick="sendPlatform('Nintendo')" >Nintendo</button>
+      <button class="main-platform-2" onclick="sendPlatform('Online')" >온라인 PC</button>
+      <button class="main-platform-3" onclick="sendPlatform('Steam')" >Steam</button>
+      <button class="main-platform-4" onclick="sendPlatform('Mobile')" >모바일 게임</button>
 
       <div class="container">
         <form action="/search" method="get" class="main-form" autocomplete="off">

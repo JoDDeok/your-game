@@ -9,10 +9,12 @@
 
     <div class="wrap">
 
-      <button type="button" class="search-platform-1" onClick="location.href='/'" >Nintendo Switch</button>
-      <button type="button" class="search-platform-2" onClick="location.href='/'" >온라인 PC</button>
-      <button type="button" class="search-platform-3" onClick="location.href='/'">Steam</button>
-      <button type="button" class="search-platform-4" onClick="location.href='/'">모바일 게임</button>
+      <form action="/platform" method="get">
+        <button type="submit" class="search-platform-1" value="Nintendo">Nintendo Switch</button>
+        <button type="submit" class="search-platform-2" value="Online">온라인 PC</button>
+        <button type="submit" class="search-platform-3" value="Steam">Steam</button>
+        <button type="submit" class="search-platform-4" value="Mobile">모바일 게임</button>
+      </form>
 
       <div class="search-text">
         검색 결과

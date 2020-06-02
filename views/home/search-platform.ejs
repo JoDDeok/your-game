@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head') %>
+
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+
+    <div class="wrap">
+
+      <button class="search-platform-1" onclick="sendPlatform('Nintendo')" >Nintendo</button>
+      <button class="search-platform-2" onclick="sendPlatform('Online')" >온라인 PC</button>
+      <button class="search-platform-3" onclick="sendPlatform('Steam')" >Steam</button>
+      <button class="search-platform-4" onclick="sendPlatform('Mobile')" >모바일 게임</button>
+
+      <div class="search-text">
+        검색 결과
+      </div>
+
+      <div class="search-wrap">
+        <% if(games == null || games.length == 0){ %>
+          <div class="search-result">There is no data to show :(</div>
+        <% } %>
+        <% games.forEach(function(game) { %>
+          <div class="search-result"><a href="<%= game.siteURL %>"><img src="<%= game.image %>"  width="350" height="250"></a></div>
+        <% }) %>
+      </div>
+
+      <div class="container">
+        <form action="/search" method="get" class="search-form" autocomplete="off">
+          <div class="finder">
+            <div class="finder__outer">
+              <div class="finder__inner">
+
+                <button class="finder__icon" ref="icon" type="submit"></button>
+                <input class="finder__input" minLength="2" type="text" name="searchText" value="<%= searchText %>" placeholder="     게임을 검색하세요">
+
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <script>
+      var platformName = getParameterByName('searchPlatform');
+
+      if(platformName == 'Nintendo') {
+        var box = document.getElementsByClassName("search-platform-1");
+
+        changeBoxColor(box, "#FF689F")
+      }
+      else if(platformName == 'Online') {
+        var box = document.getElementsByClassName("search-platform-2");
+
+        changeBoxColor(box, "#FF689F")
+      }
+      else if(platformName == 'Steam') {
+        var box = document.getElementsByClassName("search-platform-3");
+
+        changeBoxColor(box, "#FF689F")
+      }
+      else if(platformName == 'Mobile') {
+        var box = document.getElementsByClassName("search-platform-4");
+
+        changeBoxColor(box, "#FF689F")
+      }
+
+      function changeBoxColor(box, color) {
+        for(var i = 0, len = box.length; i < len; i++) {
+          box[i].style["background-color"] = color;
+        }
+      }
+    </script>
+
+  </body>
+
+</html>
