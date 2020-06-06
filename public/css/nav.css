@@ -74,43 +74,50 @@ body {
 
 .Logout{
   position : absolute;
-
   border-width : 0px;
-
-
-  width: 50%;
   width : 70px;
-   height :30px;
+  height :30px;
   overflow: hidden;
   font-size: 11px;
   color: black;
   background: #EAEAEA;
   top : 2%;
-  left : 88%;
+  left : 90%;
   border-radius: 13px;
   cursor: pointer;
-
 }
 .Loginstate{
   position : absolute;
   padding-left : 40px;
   border-width : 0px;
-
   text-align: left;
-  width: 50%;
-  width : 230px;
-   height :60px;
+  width : 180px;
+  height :60px;
   overflow: hidden;
   font-size: 18px;
   font-weight: bold;
   color: gray;
   background: white;
   top : 0%;
-  left : 80%;
-    border-radius: 10px;
-
+  left : 82%;
+  border-radius: 10px;
 }
-
+.user-game{
+  position : absolute;
+  padding-left : 40px;
+  border-width : 0px;
+  text-align: left;
+  width : 230px;
+  height :60px;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: bold;
+  color: gray;
+  background: white;
+  top : 0.5%;
+  left : 72%;
+  border-radius: 10px;
+}
 .Logo{
   position : absolute;
   margin-bottom:10px;

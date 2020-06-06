@@ -1,14 +1,15 @@
 <nav class="nav">
 
-  <a href="/" class="nav-item is-active" active-color="deeppink">Logoimg</a>
-  <a href="/" class="nav-item is-active" active-color="deeppink">Main</a>
+  <a href="/" class="nav-item" active-color="deeppink">Logoimg</a>
+  <a href="/" class="nav-item" active-color="deeppink">Home</a>
   <a href="/surveys" class="nav-item" active-color="magenta">나만의 게임찾기</a>
-  <a href="/posts" class="nav-item" active-color="violet">Board</a>
+  <a href="/posts" class="nav-item" active-color="violet">게시판</a>
 
   <span class="nav-indicator"></span>
 
 </nav>
 
-<button type="button" class="Logo" onClick="location.href='/'" ><img src="https://i.imgur.com/KkS0vIo.png#.XtNLwwP7edw.link"  width="120" height="66"></button>
+<button type="button" class="Logo" onclick="location.href='/'" ><img src="https://i.imgur.com/KkS0vIo.png#.XtNLwwP7edw.link"  width="120" height="66"></button>
+<button type="button" class="user-game" onclick="location.href='<%= currentUser.gameURL %>'" ><%= currentUser.game %></button>
 <button type="button" class="Loginstate" ><%= currentUser.username %></button>
-<button type="button" class="Logout" onClick="location.href='/logout'" >Logout</button>
+<button type="button" class="Logout" onclick="location.href='/logout'" >Logout</button>

@@ -15,6 +15,8 @@ var userSchema = mongoose.Schema({
     required:[true,'Password is required!'],
     select:false
   },
+  game:{type:String, default:'나만의 게임'},
+  gameURL:{type:String, default:'/surveys'},
 },{
   toObject:{virtuals:true}
 });

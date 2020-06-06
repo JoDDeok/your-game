@@ -36,6 +36,10 @@ body {
   outline: none;
   position: relative;
 }
+.logo {
+  margin-left: 123px;
+  height: 80px;
+}
 #btn-login {
   top: 0;
   left: 0;
@@ -58,6 +62,7 @@ body {
 }
 .input-group {
   top: 180px;
+  margin-top: 20px;
   position: absolute;
   width: 280px;
   transition: .5s;

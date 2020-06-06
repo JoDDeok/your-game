@@ -22,14 +22,6 @@ router.post('/', function(req, res){
   });
 });
 
-// show
-router.get('/:username', util.isLoggedin, checkPermission, function(req, res){
-  User.findOne({username:req.params.username}, function(err, user){
-    if(err) return res.json(err);
-    res.render('users/show', {user:user});
-  });
-});
-
 // edit
 router.get('/:username/edit', util.isLoggedin, checkPermission, function(req, res){
   var user = req.flash('user')[0];

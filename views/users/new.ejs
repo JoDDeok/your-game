@@ -1,7 +1,6 @@
 <html>
   <head>
-  <link rel="stylesheet" href="/css/login.css">
-
+    <link rel="stylesheet" href="/css/login.css">
   </head>
   <body>
 
@@ -14,6 +13,8 @@
         <button type="button" class="togglebtn" onclick="location.href='/login'">LOG IN</button>
         <button type="button" class="togglebtn">REGISTER</button>
       </div>
+
+      <div class="logo"><img src="https://i.imgur.com/KkS0vIo.png#.XtNLwwP7edw.link"  width="125" height="85"></div>
 
       <form id="register" action="/users" method="post" class="input-group">
         <input type="text" id="username" name="username" value="<%= user.username %>" class="input-field" placeholder="User name or Email" required>
