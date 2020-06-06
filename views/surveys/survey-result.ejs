@@ -7,18 +7,19 @@
   <body>
     <%- include('../partials/nav') %>
 
-    <div class="neon">당신의 게임은? </div>
-    <div class="flux">동물의 숲 </div>
-
+    <div class="neon-flux-wrap">
+      <div class="neon">당신의 게임은? </div>
+      <div class="flux"><%= game.name %></div>
+    </div>
+    
     <div id="container_A">
-      <center><a href="https://www.nintendo.co.kr/software/switch/acbaa/index.html"><img src="http://bitly.kr/yeQqSWxC" border="0" width="560" height="315"></a> &nbsp&nbsp&nbsp
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/gQMsAdVneq0?autoplay=1" frameborder="0"></iframe></center></br>
+      <center><a href="<%= game.siteURL %>"><img src="<%= game.image %>" border="0" width="560" height="315"></a> &nbsp&nbsp&nbsp
+      <iframe width="560" height="315" src="<%= game.video %>" frameborder="0"></iframe></center></br>
     </div>
 
-    <div id="container_B"><audio src="someone like you.m4a" controls></audio></div>
+    <div id="container_B"><audio src="<%= game.bgm %>" controls></audio></div>
     <button class="btn1" onClick="location.href='/surveys' ">RE  -TRY</button>
     <button type="button" class="btn2" onClick="location.href='/' ">GO HOME</button>
 
-    </div>
   </body>
 </html>

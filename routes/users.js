@@ -22,31 +22,16 @@ router.post('/', function(req, res){
   });
 });
 
-// edit
-router.get('/:username/edit', util.isLoggedin, checkPermission, function(req, res){
-  var user = req.flash('user')[0];
-  var errors = req.flash('errors')[0] || {};
-  if(!user){
-    User.findOne({username:req.params.username}, function(err, user){
-      if(err) return res.json(err);
-      res.render('users/edit', { username:req.params.username, user:user, errors:errors });
-    });
-  }
-  else {
-    res.render('users/edit', { username:req.params.username, user:user, errors:errors });
-  }
-});
-
 // update
 router.put('/:username', util.isLoggedin, checkPermission, function(req, res, next){
   User.findOne({username:req.params.username})
-    .select('password')
+    .select('game')
     .exec(function(err, user){
       if(err) return res.json(err);
 
       // update user object
-      user.originalPassword = user.password;
-      user.password = req.body.newPassword? req.body.newPassword : user.password;
+      user.game = req.body.gameName;
+      user.gameURL = req.body.gameURL;
       for(var p in req.body){
         user[p] = req.body[p];
       }
@@ -56,9 +41,9 @@ router.put('/:username', util.isLoggedin, checkPermission, function(req, res, ne
         if(err){
           req.flash('user', req.body);
           req.flash('errors', util.parseError(err));
-          return res.redirect('/users/'+req.params.username+'/edit');
+          return res.redirect('/surveys/survey');
         }
-        res.redirect('/users/'+user.username);
+        res.redirect('/surveys/result/?resultGame=' + req.body.gameName);
       });
   });
 });

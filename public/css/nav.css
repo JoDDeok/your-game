@@ -107,7 +107,7 @@ body {
   padding-left : 40px;
   border-width : 0px;
   text-align: left;
-  width : 230px;
+  width : 250px;
   height :60px;
   overflow: hidden;
   font-size: 15px;
@@ -115,8 +115,9 @@ body {
   color: gray;
   background: white;
   top : 0.5%;
-  left : 72%;
+  left : 70%;
   border-radius: 10px;
+  text-align: center;
 }
 .Logo{
   position : absolute;

@@ -261,27 +261,37 @@ button.btn2active::before {
   -webkit-transform: translate3d(0, 0, -1em);
           transform: translate3d(0, 0, -1em);
 }
-
+.neon-flux-wrap {
+  top: 15%;
+  left: 36%;
+  width: 600px;
+  height: 250px;
+  position: absolute;
+}
 .neon {
   font-family: neon;
   color: #FB4264;
   position: absolute;
-  top : 20%;
-  left : 41%;
+  left: 16%;
   font-size: 3vw;
   line-height: 3vw;
   text-shadow: 0 0 3vw #F40A35;
+  text-align: center;
 }
 
 .flux {
   font-family: neon;
   color: #426DFB;
   position: absolute;
-  top : 33%;
-  left :45%;
+  top : 30%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 3vw;
   line-height: 3vw;
   text-shadow: 0 0 3vw #2356FF;
+  text-align: center;
 }
 
 .neon {
