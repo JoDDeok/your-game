@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head') %>
+
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+
+    <div id="survey-text-1"></div>
+    <div id="survey-text-2"></div>
+    <div id="left-cnt">(2/3)</div>
+
+    <div id="survey-box">
+      <button type="button" id="survey-1""></button>
+      <button type="button" id="survey-2""></button>
+      <button type="button" id="survey-3"></button>
+      <button type="button" id="survey-4"></button>
+    </div>
+
+  <script>
+    var type = getParameterByName('type');
+    var text1 = document.getElementById("survey-text-1");
+    var text2 = document.getElementById("survey-text-2");
+
+    var survey = document.getElementById("survey-box");
+
+    var box1 = document.getElementById("survey-1");
+    var box2 = document.getElementById("survey-2");
+    var box3 = document.getElementById("survey-3");
+    var box4 = document.getElementById("survey-4");
+
+    if(type == 1) {         // 선택지 3개 버전
+      survey.removeChild(box3);
+      survey.removeChild(box4);
+
+      var boxFor3 = document.createElement("button");
+
+      boxFor3.type = "button";
+      boxFor3.id = "survey-for-3";
+
+      text1.innerHTML = "Q: 질문";
+
+      box1.innerHTML = "닌텐도";
+      box2.innerHTML = "모바일";
+      boxFor3.innerHTML = "스팀";
+
+      box1.addEventListener("click", function() {
+        locationJS('/surveys/survey-3?type=1');
+      })
+      box2.addEventListener("click", function() {
+        locationJS('/surveys/survey-3?type=2');
+      })
+      boxFor3.addEventListener("click", function() {
+        locationJS('/surveys/survey-3?type=3');
+      })
+
+      survey.appendChild(boxFor3);
+    }
+    else if(type == 2) {    // 선택지 4개 버전
+      text1.innerHTML = "Q: 질문";
+
+      box1.innerHTML = "닌텐도";
+      box2.innerHTML = "모바일";
+      box3.innerHTML = "스팀";
+      box4.innerHTML = "온라인";
+
+      box1.addEventListener("click", function() {
+        locationJS('/surveys/survey-3?type=1');
+      })
+      box2.addEventListener("click", function() {
+        locationJS('/surveys/survey-3?type=2');
+      })
+      box3.addEventListener("click", function() {
+        locationJS('/surveys/survey-3?type=3');
+      })
+      box4.addEventListener("click", function() {
+        locationJS('/surveys/survey-3?type=4');
+      })
+    }
+    else {
+
+    }
+  </script>
+
+  </body>
+</html>
