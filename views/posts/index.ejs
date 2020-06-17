@@ -8,7 +8,7 @@
 
     <div class="wrap">
 
-      <div id="container"></br><B>Board</B></div></br>
+      <div id="container"></br><B>자유게시판</B></div></br>
 
       <div class="text-area">
         <form action="/posts" method="post">
@@ -34,13 +34,25 @@
 
 
       <div class="post-field">
+        <ul id ="ulTable">
+          <li>
+            <ul>
+              <li>내용</li>
+              <li>작성자</li>
+            </ul>
+          </li>
         <% if(posts == null || posts.length == 0){ %>
           <div class="content-field">There is no data to show :(</div>
         <% } %>
         <% posts.forEach(function(post) { %>
-          <div class="username-field"><%= post.author ? post.author.username : "" %></div>
-          <div class="content-field"><%= post.body %></div></br>
+          <li>
+            <ul>
+              <li class="left"><%= post.body %></li>
+              <li><%= post.author ? post.author.username : "" %></li>
+            </ul>
+          </li>
         <% }) %>
+        <ul>
 
         <nav class="page-nav">
           <%

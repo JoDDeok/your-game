@@ -7,15 +7,131 @@
   <body>
     <%- include('../partials/nav') %>
 
-    <div class="survey-text">Q : 내가 좋아하는 게임 플랫폼은??</div>
-    <div class="left-cnt">(1/4)</div>
+    <div id="survey-text-1"></div>
+    <div id="survey-text-2"></div>
+    <div id="left-cnt">(3/3)</div>
 
     <div id="survey-box">
-      <button type="button" id="survey-1" onclick="updateUserGame('/users/<%= currentUser.username %>?_method=put', 'PLAYERUNKNOWN’S BATTLEGROUNDS(PS4)', 'https://www.pubg.com/ko/')">닌텐도가 좋아요</button>
-      <button type="button" id="survey-2" onclick="updateUserGame('/users/<%= currentUser.username %>?_method=put', 'DOTA 2', 'https://kr.dota2.com/')">온라인 PC게임이 좋아요</button>
-      <button type="button" id="survey-3">플레이 스테이션이 좋아요</button>
-      <button type="button" id="survey-4">핸드폰 게임이 좋아요</button>
+      <button type="button" id="survey-1"></button>
+      <button type="button" id="survey-2"></button>
     </div>
+
+    <script>
+      var firstType = getParameterByName('first_type');
+      var secondType = getParameterByName('second_type');
+
+      var text1 = document.getElementById("survey-text-1");
+      var text2 = document.getElementById("survey-text-2");
+
+      var survey = document.getElementById("survey-box");
+
+      var box1 = document.getElementById("survey-1");
+      var box2 = document.getElementById("survey-2");
+
+      text1.innerHTML = "Q: 당신은 이제 자신이 고른 책을 읽으려고 합니다.";
+      text2.innerHTML = "어디에서 읽으실 건가요?";
+
+      box1.innerHTML = "스탠드가 있는 책상 앞";
+      box2.innerHTML = "햇빛이 비치는 쇼파 위";
+
+      if(firstType == 1 && secondType == 1) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', 'Counter Strike: Global Offensive', 'https://blog.counter-strike.net/');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', 'DOTA 2', 'https://kr.dota2.com/');
+        })
+      }
+      else if(firstType == 1 && secondType == 2) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '모여봐요 동물의 숲', 'https://www.nintendo.co.kr/software/switch/acbaa/index.html');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '모여봐요 동물의 숲', 'https://www.nintendo.co.kr/software/switch/acbaa/index.html');
+        })
+      }
+      else if(firstType == 1 && secondType == 3) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '오버워치', 'https://playoverwatch.com/ko-kr/');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '슈퍼 스매시브라더스 얼티밋(대난투)', 'https://www.smashbros.com/ko_KR/');
+        })
+      }
+      else if(firstType == 1 && secondType == 4) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '저스트 댄스 2020', 'https://www.ubisoft.com/en-us/game/just-dance-2020');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '저스트 댄스 2020', 'https://www.ubisoft.com/en-us/game/just-dance-2020');
+        })
+      }
+      else if(firstType == 2 && secondType == 1) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '젤다의 전설: 야생의 숨결', 'https://www.nintendo.co.kr/software/switch/aaaaa/dlc.html');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '젤다의 전설: 야생의 숨결', 'https://www.nintendo.co.kr/software/switch/aaaaa/dlc.html');
+        })
+      }
+      else if(firstType == 2 && secondType == 2) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '모여봐요 동물의 숲', 'https://www.nintendo.co.kr/software/switch/acbaa/index.html');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '모여봐요 동물의 숲', 'https://www.nintendo.co.kr/software/switch/acbaa/index.html');
+        })
+      }
+      else if(firstType == 2 && secondType == 3) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '메이플스토리', 'https://maplestory.nexon.com/Home/Main');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '브롤스타즈', 'https://blog.brawlstars.com/');
+        })
+      }
+      else if(firstType == 2 && secondType == 4) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '클래시 오브 클랜', 'https://supercell.com/en/games/clashofclans/');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '클래시 오브 클랜', 'https://supercell.com/en/games/clashofclans/');
+        })
+      }
+      else if(firstType == 3 && secondType == 1) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '서든 어택', 'http://sa.nexon.com/main/index.aspx');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '젤다의 전설: 야생의 숨결', 'https://www.nintendo.co.kr/software/switch/aaaaa/dlc.html');
+        })
+      }
+      else if(firstType == 3 && secondType == 2) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '모여봐요 동물의 숲', 'https://www.nintendo.co.kr/software/switch/acbaa/index.html');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '모여봐요 동물의 숲', 'https://www.nintendo.co.kr/software/switch/acbaa/index.html');
+        })
+      }
+      else if(firstType == 3 && secondType == 3) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', 'League of legends', 'https://kr.leagueoflegends.com/ko-kr/');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '슈퍼 스매시브라더스 얼티밋(대난투)', 'https://www.smashbros.com/ko_KR/');
+        })
+      }
+      else if(firstType == 3 && secondType == 4) {
+        box1.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', 'Grand Theft Auto V', 'https://www.rockstargames.com/V/');
+        })
+        box2.addEventListener("click", function() {
+          updateUserGame('/users/<%= currentUser.username %>?_method=put', '포켓몬스터: 소드&실드', 'https://pokemonkorea.co.kr/sword_shield');
+        })
+      }
+
+    </script>
 
   </body>
 </html>

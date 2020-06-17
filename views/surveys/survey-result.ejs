@@ -17,7 +17,7 @@
       <iframe width="560" height="315" src="<%= game.video %>" frameborder="0"></iframe></center></br>
     </div>
 
-    <div id="container_B"><audio src="<%= game.bgm %>" controls></audio></div>
+    <div id="container_B"><audio autoplay controls><source src="<%= game.bgm %>" type="audio/mp3"></audio></div>
     <button class="btn1" onClick="location.href='/surveys' ">RE  -TRY</button>
     <button type="button" class="btn2" onClick="location.href='/' ">GO HOME</button>
 

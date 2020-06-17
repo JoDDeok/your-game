@@ -10,24 +10,71 @@
   background-size: cover;
   position: absolute;
 }
+ul, li{
+    list-style:none;
+    text-align:center;
+    line-height:6em;
+    padding:0;
+    margin:0;
+}
+
+
+
+#ulTable {margin-top:10px;}
+
+
+#ulTable > li:first-child > ul > li {
+    background-color:#c9c9c9;
+    line-height:3em;
+    font-weight:bold;
+    text-align:center;
+}
+
+#ulTable > li > ul {
+
+    padding:0px auto;
+    position:relative;
+    top : -100px;
+    min-width:40px;
+}
+#ulTable > li > ul > li {
+    float:left;
+    font-size:12pt;
+    border-bottom:1px solid silver;
+    vertical-align:baseline;
+}
+
+#ulTable > li > ul > li:first-child         {width:70%;} /* 내용 열 크기*/
+#ulTable > li > ul > li:first-child +li     {width:30%;} /* 작성자 열 크기*/
+
+
+.left {
+    text-align : left;
+}
+
 #container{
-  background: black;
+  background:  pink;
   width: 300px;
   height: 100px;
   position: relative;
+  top:-80px;
+  left: -470px;
   margin: 0% auto;
   padding: 5px;
   overflow: hidden;
-  color: white;
-  font-size: 26px;
+  color: black;
+  font-size: 28px;
   text-align: center;
 }
 
 .text-area{
   background: white;
-  width: 960px;
+  width: 1080px;
   height: 170px;
   position: relative;
+  top : -125px;
+  left : -3px;
+
   margin: 1% auto;
   padding: 5px;
   overflow: hidden;
@@ -36,15 +83,19 @@
   text-align: center;
 }
 .btn{
-  background: linear-gradient(to right, #ff105f, #ffad06);
+  background:gray;
   width: 150px;
   height: 100%;
+  box-shadow: none;
+
+  border-width: 0px;
   position: relative;
+  left : 35px;
   padding: 30px;
-  margin: 50px;
+  margin: 40px;
   display:inline;
   outline:none;
-  border-radius: 30px;
+  border-radius: 35px;
   transition: .5s;
   font-size: 20px;
   color: white;
@@ -52,15 +103,18 @@
 }
 
 .input-field {
-    width: 700px;
-    padding: 70px 0;
-    margin: 5px 0;
-    border: none;
-    border: 1px solid #999;
-    outline: none;
-    display:inline;
-    background: transparent;
-    float: left;
+  width: 800px;
+  padding: 70px 10px;
+  margin: 5px 0;
+  position : relative;
+  border-radius: 5px;
+  font-size: 14px;
+  left :40px;
+  border: 3px solid #999;
+  outline: none;
+  display:inline;
+  background: transparent;
+  float: left;
 }
 
 .post-field {
@@ -68,29 +122,6 @@
   width: 1100px;
   height: 1000px;
   margin: 0 auto;
-}
-
-.content-field {
-  background: lightgray;
-  width: 1100px;
-  height: 170px;
-  position: relative;
-  overflow: hidden;
-  color: black;
-  font-size: 25px;
-  text-align: center;
-}
-
-.username-field{
-  background: black;
-  color: white;
-  width: 300px;
-  height: 50px ;
-  position: relative;
-  overflow: hidden;
-  color: white;
-  font-size: 30px;
-  text-align: center;
 }
 
 .page-nav {
