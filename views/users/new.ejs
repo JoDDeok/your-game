@@ -8,14 +8,18 @@
 
     <div class="form-wrap">
 
+      <!-- 로그인 및 회원가입 페이지로 이동할 수 있게 해주는 버튼의 디자인 적용 -->
       <div class="button-wrap">
         <div id="btn-register"></div>
-        <button type="button" class="togglebtn" onclick="location.href='/login'">LOG IN</button>
+        <button type="button" class="togglebtn" onclick="location.href='/login'">LOG IN</button> <!-- 로그인 페이지로 이동 -->
         <button type="button" class="togglebtn">REGISTER</button>
       </div>
 
+      <!-- 로고 이미지 적용 -->
       <div class="logo"><img src="https://i.imgur.com/KkS0vIo.png#.XtNLwwP7edw.link"  width="125" height="85"></div>
 
+      <!-- '/users'에 post요청을 하는 form -->
+      <!-- username, password, passwordConfirmation을 입력받고 submit -->
       <form id="register" action="/users" method="post" class="input-group">
         <input type="text" id="username" name="username" value="<%= user.username %>" class="input-field" placeholder="User name or Email" required>
         <% if(errors.username){ %>

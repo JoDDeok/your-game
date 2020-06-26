@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-// schema
+// 게임 schema
 var gameSchema = mongoose.Schema({
   name:{type:String},
   platform:{type:String},

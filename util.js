@@ -17,17 +17,19 @@ util.parseError = function(errors){
   return parsed;
 }
 
+// 사용자의 로그인 여부를 확인하는 기능
 util.isLoggedin = function(req, res, next){
   if(req.isAuthenticated()){
     next();
   }
-  else {
+  else { // 로그인이 되어있지 않을 경우 에러 메세지와 함께 로그인 페이지로 이동
     req.flash('errors', {login:'Please login first'});
     res.redirect('/login');
   }
 }
 
-util.noPermission = function(req, res){
+// route에 접근권한이 없다고 판단된 경우에 호출
+util.noPermission = function(req, res){ // 헤어 메세지와 함께 로그인 페이지로 이동
   req.flash('errors', {login:"You don't have permission"});
   req.logout();
   res.redirect('/login');

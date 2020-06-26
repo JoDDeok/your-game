@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%- include('../partials/head') %>
+    <%- include('../partials/head') %> <!-- head.ejs include -->
   </head>
   <body>
-    <%- include('../partials/nav') %>
+    <%- include('../partials/nav') %> <!-- nav.ejs include -->
 
     <div class="wrap">
 
+      <!-- 플랫폼별 게임을 추천받을 수 있는 버튼, 버튼별 search.js에 sendPlatform function 기능 탑재 -->
       <button class="main-platform-1" onclick="sendPlatform('Nintendo')" >Nintendo</button>
       <button class="main-platform-2" onclick="sendPlatform('Online')" >온라인 PC</button>
       <button class="main-platform-3" onclick="sendPlatform('Steam')" >Steam</button>
       <button class="main-platform-4" onclick="sendPlatform('Mobile')" >모바일 게임</button>
 
+      <!-- '/search'에 get요청을 하는 form -->
+      <!-- searchText를 입력받고 submit -->
       <div class="container">
         <form action="/search" method="get" class="main-form" autocomplete="off">
           <div class="finder">
@@ -20,7 +23,7 @@
               <div class="finder__inner">
 
                 <button class="finder__icon" ref="icon" type="submit"></button>
-                <input minLength="2" type="text" name="searchText" value="<%= searchText %>" class="finder__input" placeholder="     게임을 검색하세요">
+                <input minLength="2" type="text" name="searchText" value="" class="finder__input" placeholder="     게임을 검색하세요">
 
               </div>
             </div>

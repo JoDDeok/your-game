@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%- include('../partials/head') %>
+    <%- include('../partials/head') %> <!-- head.ejs include -->
 
   </head>
   <body>
-    <%- include('../partials/nav') %>
+    <%- include('../partials/nav') %> <!-- nav.ejs include -->
 
     <div class="wrap">
 
+      <!-- 플랫폼별 게임을 추천받을 수 있는 버튼, 버튼별 search.js에 sendPlatform function 기능 탑재 -->
       <button class="search-platform-1" onclick="sendPlatform('Nintendo')" >Nintendo</button>
       <button class="search-platform-2" onclick="sendPlatform('Online')" >온라인 PC</button>
       <button class="search-platform-3" onclick="sendPlatform('Steam')" >Steam</button>
       <button class="search-platform-4" onclick="sendPlatform('Mobile')" >모바일 게임</button>
 
-      <div class="search-text">
-        검색 결과
-      </div>
+      <div class="search-text">검색 결과</div>
 
+      <!-- routes폴더의 home.js에 router.get('/search', util.isLoggedin, async function(req, res)로부터 전달받은 게임들을 보여줌 -->
       <div class="search-wrap">
-        <% if(games == null || games.length == 0){ %>
+        <% if(games == null || games.length == 0){ %> <!-- 검색 결과가 없을 경우 해당 메시지 출력 -->
           <div class="search-result">There is no data to show :(</div>
         <% } %>
-        <% games.forEach(function(game) { %>
+        <% games.forEach(function(game) { %> <!-- forEach를 사용하여 전달받은 게임들 각각에 코드 적용, 해당 게임 이미지를 출력하고 이미지 클릭 시 공식 사이트로 이동 -->
           <div class="search-result"><a href="<%= game.siteURL %>"><img src="<%= game.image %>"  width="350" height="250"></a></div>
         <% }) %>
       </div>
 
+      <!-- '/search'에 get요청을 하는 form -->
+      <!-- searchText를 입력받고 submit -->
       <div class="container">
         <form action="/search" method="get" class="search-form" autocomplete="off">
           <div class="finder">

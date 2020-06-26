@@ -10,6 +10,7 @@
 
       <div id="container"></br><B>자유게시판</B></div></br>
 
+      <!-- 게시글 작성 부분, '/posts'에 post요청 -->
       <div class="text-area">
         <form action="/posts" method="post">
           <div>
@@ -18,21 +19,18 @@
               <span><%= errors.body.message %></span>
             <% } %>
           </div>
-
           <% if(errors.unhandled){ %>
             <div>
               <%= errors.unhandled %>
             </div>
           <% } %>
-
-          <% if(isAuthenticated){ %>
+          <% if(isAuthenticated){ %> <!-- 로그인이 되어있는 경우에만 submit(작성) 가능 -->
             <button type="submit" class="btn"><B>Submit</B></button>
           <% } %>
-
         </form>
       </div>
 
-
+      <!-- 게시글 부분 -->
       <div class="post-field">
         <ul id ="ulTable">
           <li>
@@ -41,12 +39,12 @@
               <li>작성자</li>
             </ul>
           </li>
-        <% if(posts == null || posts.length == 0){ %>
+        <% if(posts == null || posts.length == 0){ %> <!-- 게시글이 없을 경우 아래의 메시지 출력 -->
           <div class="content-field">There is no data to show :(</div>
         <% } %>
-        <% posts.forEach(function(post) { %>
+        <% posts.forEach(function(post) { %> <!-- forEach를 사용하여 게시글들 각각에 코드 적용 -->
           <li>
-            <ul>
+            <ul> <!-- 전달받은 게시글들을 내용, 작성자 순으로 보여줌 -->
               <li class="left"><%= post.body %></li>
               <li><%= post.author ? post.author.username : "" %></li>
             </ul>
@@ -54,24 +52,25 @@
         <% }) %>
         <ul>
 
+        <!-- 게시판 페이지 기능 -->
         <nav class="page-nav">
           <%
-            var offset = 2;
+            var offset = 5;
             var previousBtnEnabled = currentPage>1;
             var nextBtnEnabled = currentPage<maxPage;
           %>
           <ul class="page-ul">
-            <li class="page-item <%= previousBtnEnabled?'':'disabled' %>">
+            <li class="page-item <%= previousBtnEnabled?'':'disabled' %>"> <!-- 이전 페이지 (<<) 버튼 -->
               <a class="page-link" href="/posts?page=<%= currentPage-1 %>&limit=<%= limit %>" <%= previousBtnEnabled?'':'tabindex=-1' %>>«</a>
             </li>
-            <% for(i=1;i<=maxPage;i++){ %>
+            <% for(i=1;i<=maxPage;i++){ %> <!-- maxPage 수 만큼 페이지 버튼 생성 -->
               <% if(i==1 || i==maxPage || (i>=currentPage-offset && i<=currentPage+offset)){ %>
                 <li class="page-item <%= currentPage==i?'active':'' %>"><a class="page-link" href="/posts?page=<%= i %>&limit=<%= limit %>"> <%= i %> </a></li>
               <% } else if(i==2 || i==maxPage-1){ %>
                 <li><a class="page-link">...</a></li>
               <% } %>
             <% } %>
-            <li class="page-item <%= nextBtnEnabled?'':'disabled' %>">
+            <li class="page-item <%= nextBtnEnabled?'':'disabled' %>"> <!-- 다음 페이지 (>>) 버튼 -->
               <a class="page-link" href="/posts?page=<%= currentPage+1 %>&limit=<%= limit %>" <%= nextBtnEnabled?'':'tabindex=-1' %>>»</a>
             </li>
           </ul>

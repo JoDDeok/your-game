@@ -1,60 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%- include('../partials/head') %>
+    <%- include('../partials/head') %> <!-- head.ejs include -->
 
   </head>
   <body>
-    <%- include('../partials/nav') %>
+    <%- include('../partials/nav') %> <!-- nav.ejs include-->
 
-    <div id="survey-text-1"></div>
-    <div id="survey-text-2"></div>
-    <div id="left-cnt">(3/3)</div>
+    <!-- 질문 내용 -->
+    <div id="survey-text-1">Q: 당신은 이제 자신이 고른 책을 읽으려고 합니다.</div>
+    <div id="survey-text-2">어디에서 읽으실 건가요?</div>
+    <div id="left-cnt">(3/3)</div> <!-- 설문 진행도 -->
 
     <div id="survey-box">
-      <button type="button" id="survey-1"></button>
-      <button type="button" id="survey-2"></button>
+      <button type="button" id="survey-1">스탠드가 있는 책상 앞</button>
+      <button type="button" id="survey-2">햇빛이 비치는 쇼파 위</button>
     </div>
 
     <script>
-      var firstType = getParameterByName('first_type');
-      var secondType = getParameterByName('second_type');
-
-      var text1 = document.getElementById("survey-text-1");
-      var text2 = document.getElementById("survey-text-2");
-
-      var survey = document.getElementById("survey-box");
+      var firstType = getParameterByName('first_type'); // 첫 번째 설문의 답변을 받아옴(survey.js에 getParameterByName function)
+      var secondType = getParameterByName('second_type'); // 두 번째 설문의 답변을 받아옴(survey.js에 getParameterByName function)
 
       var box1 = document.getElementById("survey-1");
       var box2 = document.getElementById("survey-2");
 
-      text1.innerHTML = "Q: 당신은 이제 자신이 고른 책을 읽으려고 합니다.";
-      text2.innerHTML = "어디에서 읽으실 건가요?";
-
-      box1.innerHTML = "스탠드가 있는 책상 앞";
-      box2.innerHTML = "햇빛이 비치는 쇼파 위";
-
+      // 첫 번재와 두 번째 설문의 답변에 따라 유저 정보에 추천해줄 게임 결과를 업데이트 해주는 기능을 설문 버튼에 추가(survey.js에 updateUserGame function)
       if(firstType == 1 && secondType == 1) {
-        box1.addEventListener("click", function() {
+        box1.addEventListener("click", function() { // ex 설문 답변이 페이지별로 1, 1, 1일 경우
           updateUserGame('/users/<%= currentUser.username %>?_method=put', 'Counter Strike: Global Offensive', 'https://blog.counter-strike.net/');
         })
-        box2.addEventListener("click", function() {
+        box2.addEventListener("click", function() { // ex 설문 답변이 페이지별로 1, 1, 2일 경우
           updateUserGame('/users/<%= currentUser.username %>?_method=put', 'DOTA 2', 'https://kr.dota2.com/');
         })
       }
       else if(firstType == 1 && secondType == 2) {
-        box1.addEventListener("click", function() {
+        box1.addEventListener("click", function() { // ex 설문 답변이 페이지별로 1, 2, 1일 경우
           updateUserGame('/users/<%= currentUser.username %>?_method=put', '모여봐요 동물의 숲', 'https://www.nintendo.co.kr/software/switch/acbaa/index.html');
         })
-        box2.addEventListener("click", function() {
+        box2.addEventListener("click", function() { // ex 설문 답변이 페이지별로 1, 2, 2일 경우
           updateUserGame('/users/<%= currentUser.username %>?_method=put', '모여봐요 동물의 숲', 'https://www.nintendo.co.kr/software/switch/acbaa/index.html');
         })
       }
       else if(firstType == 1 && secondType == 3) {
-        box1.addEventListener("click", function() {
+        box1.addEventListener("click", function() { // ex 설문 답변이 페이지별로 1, 3, 1일 경우
           updateUserGame('/users/<%= currentUser.username %>?_method=put', '오버워치', 'https://playoverwatch.com/ko-kr/');
         })
-        box2.addEventListener("click", function() {
+        box2.addEventListener("click", function() { // ex 설문 답변이 페이지별로 1, 3, 2일 경우
           updateUserGame('/users/<%= currentUser.username %>?_method=put', '슈퍼 스매시브라더스 얼티밋(대난투)', 'https://www.smashbros.com/ko_KR/');
         })
       }

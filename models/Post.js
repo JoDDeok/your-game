@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-// schema
+// 게시글 schema
 var postSchema = mongoose.Schema({
   body:{type:String, required:[true,'Body is required!']},
   author:{type:mongoose.Schema.Types.ObjectId, ref:'user', required:true},

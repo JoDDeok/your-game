@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%- include('../partials/head') %>
+    <%- include('../partials/head') %> <!-- head.ejs include -->
 
   </head>
   <body>
-    <%- include('../partials/nav') %>
+    <%- include('../partials/nav') %> <!-- nav.ejs include -->
+
+    <!-- router폴더의 surveys.js의 router.get('/result', async function(req, res)으로부터 전달받은 게임 정보들을 출력-->
 
     <div class="neon-flux-wrap">
       <div class="neon">당신의 게임은? </div>
-      <div class="flux"><%= game.name %></div>
+      <div class="flux"><%= game.name %></div> <!-- 게임 이름 출력 -->
     </div>
 
     <div id="container_A">
-      <center><a href="<%= game.siteURL %>"><img src="<%= game.image %>" border="0" width="560" height="315"></a> &nbsp&nbsp&nbsp
-      <iframe width="560" height="315" src="<%= game.video %>" frameborder="0"></iframe></center></br>
+      <center><a href="<%= game.siteURL %>"><img src="<%= game.image %>" border="0" width="560" height="315"></a> <!-- 해당 게임의 이미지출력 및 이미지 클릭 시 공식 사이트로 이동하는 기능 -->
+      <iframe width="560" height="315" src="<%= game.video %>" frameborder="0"></iframe></center></br> <!-- 해당 게임의 youtube 영상 -->
     </div>
 
-    <div id="container_B"><audio autoplay controls><source src="<%= game.bgm %>" type="audio/mp3"></audio></div>
-    <button class="btn1" onClick="location.href='/surveys' ">RE  -TRY</button>
-    <button type="button" class="btn2" onClick="location.href='/' ">GO HOME</button>
+    <div id="container_B"><audio autoplay controls><source src="<%= game.bgm %>" type="audio/mp3"></audio></div> <!-- 해당 게임의 bgm, 페이지 진입 시 자동재생 -->
+    <button class="btn1" onClick="location.href='/surveys' ">RE  -TRY</button> <!-- 설문 시작 페이지로 돌아갈 수 있게 해주는 기능 -->
+    <button type="button" class="btn2" onClick="location.href='/' ">GO HOME</button> <!-- 메인 페이지로 돌아갈 수 있게 해주는 기능 -->
 
   </body>
 </html>

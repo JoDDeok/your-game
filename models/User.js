@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
-// schema
+// 유저 schema
 var userSchema = mongoose.Schema({
   username:{
     type:String,
@@ -21,18 +21,18 @@ var userSchema = mongoose.Schema({
   toObject:{virtuals:true}
 });
 
-// virtuals
+// virtuals (회원가입시에 필요한 정보이지만 db에는 저장될 필요가 없기에 virtual 사용)
 userSchema.virtual('passwordConfirmation')
   .get(function(){ return this._passwordConfirmation; })
   .set(function(value){ this._passwordConfirmation=value; });
 
-// password validation
+// password validation (password를 DB에 생성, 수정하기 전에 값이 유효한지 확인)
 var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
 var passwordRegexErrorMessage = 'Should be minimum 8 characters of alphabet and number combination!';
 userSchema.path('password').validate(function(v) {
   var user = this;
 
-  // create user
+  // create user (회원가입시 예외처리들)
   if(user.isNew){
     if(!user.passwordConfirmation){
       user.invalidate('passwordConfirmation', 'Password Confirmation is required.');
@@ -46,7 +46,7 @@ userSchema.path('password').validate(function(v) {
     }
   }
 
-  // update user
+  // update user (유저 정보 수정시 에러들)
   if(!user.isNew){
 
   }
@@ -59,12 +59,12 @@ userSchema.pre('save', function (next){
     return next();
   }
   else {
-    user.password = bcrypt.hashSync(user.password);
+    user.password = bcrypt.hashSync(user.password); // password를 hash값으로 바꿈
     return next();
   }
 });
 
-// model methods
+// model methods (user model의 password hash와 입력받은 password text를 비교하는 method)
 userSchema.methods.authenticate = function (password) {
   var user = this;
   return bcrypt.compareSync(password,user.password);
